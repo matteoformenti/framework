@@ -641,7 +641,7 @@ class BelongsToMany extends Relation
      */
     public function find($id, $columns = ['*'])
     {
-        if (is_array($id) || $id instanceof Arrayable) {
+        if ((is_array($id) || $id instanceof Arrayable) && ! $id instanceof Model) {
             return $this->findMany($id, $columns);
         }
 
